@@ -43,3 +43,16 @@ plugins:
       pip_url: git+https://github.com/hotgluexyz/target-csv.git
       config:
         destination_path: output
+  schedules:
+    - name: ga4-new-vs-returning-conversions
+      interval: '@once'
+      extractor: tap-google-analytics-v4-sourcemedium-campaign-sessions-us
+      loader: target-csv
+      transform: skip
+      start_date: 2022-12-01 00:00:00
+    - name: ga4-sourcemedium-campaign-sessions
+      interval: '@once'
+      extractor: tap-google-analytics-v4-sourcemedium-campaign-sessions-us
+      loader: target-csv
+      transform: skip
+      start_date: 2022-12-01 00:00:00
