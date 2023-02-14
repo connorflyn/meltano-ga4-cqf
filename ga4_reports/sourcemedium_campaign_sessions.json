@@ -1,0 +1,17 @@
+[
+  {
+    "name": "sourcemedium_campaign_sessions",
+    "dimensions": [
+      "year",
+      "week",
+      "date",
+      "sourceMedium",
+      "campaignId",
+      "country"
+    ],
+    "metrics": [
+      "sessions",
+      "totalUsers"
+    ]
+  }
+]

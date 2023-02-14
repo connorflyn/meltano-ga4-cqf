@@ -1,0 +1,17 @@
+[
+  {
+    "name": "new_vs_returning_conversions",
+    "dimensions": [
+      "date",
+      "year",
+      "week",
+      "country",
+      "newVsReturning",
+      "deviceCategory"
+    ],
+    "metrics": [
+      "sessions",
+      "transactions"
+    ]
+  }
+]

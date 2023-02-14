@@ -5,3 +5,35 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  extractors:
+  - name: tap-google-analytics-v4
+    namespace: tap_google_analytics_v4
+    pip_url: git+https://github.com/connorflyn/tap-google-analytics-v4.git
+    executable: tap-google-analytics
+    capabilities:
+    - catalog
+    - discover
+    - state
+    - about
+    - stream-maps
+    settings:
+    - name: key_file_location
+    - name: reports
+    - name: property_id
+    - name: start_date
+      kind: date_iso8601
+    - name: end_date
+      kind: date_iso8601
+    config:
+      start_date: '2022-12-01'
+      end_date: '2022-12-02'
+      key_file_location: $MELTANO_PROJECT_ROOT/.meltano/meltano_GA4_client_secrets.json
+  - name: tap-google-analytics-v4-new-vs-returning-conversions-us
+    inherit_from: tap-google-analytics-v4-us
+    config:
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/new_vs_returning_conversions.json
+  - name: tap-google-analytics-v4-sourcemedium-campaign-sessions-us
+    inherit_from: tap-google-analytics-v4-us
+    config:
+      reports: $MELTANO_PROJECT_ROOT/ga4_reports/sourcemedium_campaign_sessions.json
